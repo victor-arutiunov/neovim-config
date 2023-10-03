@@ -12,7 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+	"mhartington/formatter.nvim",
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+    	"neovim/nvim-lspconfig",
 	{"catppuccin/nvim", name = "catppuccin", priority = 1000},
 }
 
 require("lazy").setup(plugins)
+

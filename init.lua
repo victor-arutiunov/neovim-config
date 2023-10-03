@@ -1,23 +1,10 @@
--- General config
-vim.wo.number = true
+require("./plugins-setup")
 
--- Plugin manager
-require("./lazy")
+require("./UIs/neovide")
 
--- Mapping
-local set_keymap = function(lhs, rhs)
-	vim.keymap.set('n', lhs, rhs, {noremap=true, silent=true})
-end
-set_keymap('<C-C>', '"+y')
-set_keymap('<C-V>', '"+p')
+require("./core/colorscheme")
+require("./core/keymaps")
+require("./core/options")
 
--- Appearance
-vim.g.neovide_transparency=0.9
-vim.g.neovide_padding_top=10
-vim.g.neovide_padding_left=10
-vim.g.neovide_hide_mouse_when_typing=true
-
--- Themes
-vim.cmd.colorscheme 'catppuccin-mocha'
-
-
+require("./plugins.mason")
+require("./plugins.lsp")
