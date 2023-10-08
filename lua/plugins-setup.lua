@@ -1,23 +1,26 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	"mhartington/formatter.nvim",
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-    	"neovim/nvim-lspconfig",
-	{"catppuccin/nvim", name = "catppuccin", priority = 1000},
+	{ import = "plugins" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.formatters" },
+	{ import = "plugins.themes" },
+}
+local config = {
+	change_detection = {
+		enabled = false,
+	},
 }
 
-require("lazy").setup(plugins)
-
+require("lazy").setup(plugins, config)
