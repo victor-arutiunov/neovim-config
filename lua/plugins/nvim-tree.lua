@@ -18,6 +18,7 @@ return {
 		nvim_tree.setup(nvim_tree_config)
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
+		vim.opt.termguicolors = true
 		vim.keymap.set("n", "~", "<Cmd>:NvimTreeToggle<CR>")
 	end,
 }

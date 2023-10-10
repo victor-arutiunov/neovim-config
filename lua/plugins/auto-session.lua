@@ -5,8 +5,14 @@ local auto_session_options = {
 
 return {
 	"rmagatti/auto-session",
+	dependencies = {
+		"zwhitchcox/auto-session-nvim-tree",
+	},
 	config = function()
 		local auto_session = require("auto-session")
 		auto_session.setup(auto_session_options)
+
+		local auto_session_nvim_tree = require("auto-session-nvim-tree")
+		auto_session_nvim_tree.setup(auto_session)
 	end,
 }
